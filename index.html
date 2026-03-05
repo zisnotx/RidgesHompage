@@ -12,10 +12,33 @@
         <p class="tagline">Professional tools for all your calculation needs</p>
     </header>
 
+    <!-- Function Selector / Tabs -->
+    <div class="function-selector">
+        <div class="selector-track">
+            <button class="selector-btn active" data-target="basic" onclick="selectCalculator('basic')">
+                <span class="icon">➕</span>
+                <span class="label">Basic</span>
+            </button>
+            <button class="selector-btn" data-target="log" onclick="selectCalculator('log')">
+                <span class="icon">📈</span>
+                <span class="label">Logarithmic</span>
+            </button>
+            <button class="selector-btn" data-target="factor" onclick="selectCalculator('factor')">
+                <span class="icon">🔢</span>
+                <span class="label">Factorization</span>
+            </button>
+            <button class="selector-btn" data-target="trig" onclick="selectCalculator('trig')">
+                <span class="icon">📐</span>
+                <span class="label">Trigonometric</span>
+            </button>
+        </div>
+    </div>
+
     <main>
-        <div class="calculator-grid">
-            <!-- Section 1: Basic Calculator -->
-            <div class="calculator-section" id="basic-section" onclick="selectCalculator('basic')">
+        <div class="calculator-container">
+            <div class="calculator-grid">
+                <!-- Section 1: Basic Calculator -->
+            <div class="calculator-section active" id="basic-section" data-calculator="basic">
                 <div class="section-header">
                     <span class="icon">➕</span>
                     <h2>Basic Calculator</h2>
@@ -51,7 +74,7 @@
             </div>
 
             <!-- Section 2: Logarithmic Calculator -->
-            <div class="calculator-section" id="log-section" onclick="selectCalculator('log')">
+            <div class="calculator-section" id="log-section" data-calculator="log">
                 <div class="section-header">
                     <span class="icon">📈</span>
                     <h2>Logarithmic Calculator</h2>
@@ -78,7 +101,7 @@
             </div>
 
             <!-- Section 3: Factorization Calculator -->
-            <div class="calculator-section" id="factor-section" onclick="selectCalculator('factor')">
+            <div class="calculator-section" id="factor-section" data-calculator="factor">
                 <div class="section-header">
                     <span class="icon">🔢</span>
                     <h2>Factorization Calculator</h2>
@@ -97,7 +120,7 @@
             </div>
 
             <!-- Section 4: Trigonometric Calculator -->
-            <div class="calculator-section" id="trig-section" onclick="selectCalculator('trig')">
+            <div class="calculator-section" id="trig-section" data-calculator="trig">
                 <div class="section-header">
                     <span class="icon">📐</span>
                     <h2>Trigonometric Calculator</h2>

@@ -232,16 +232,24 @@ function calculateTrig(func) {
 
 // ==================== Section Selection ====================
 function selectCalculator(section) {
-    // Remove active class from all sections
-    document.querySelectorAll('.calculator-section').forEach(sec => {
-        sec.classList.remove('active', 'selected');
+    // Update tab buttons
+    document.querySelectorAll('.selector-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.target === section) {
+        btn.classList.add('active');
+        }
     });
     
-    // Add active class to selected section
-    document.getElementById(section + '-section').classList.add('active', 'selected');
+    // Hide all calculator sections with fade out
+    document.querySelectorAll('.calculator-section').forEach(sec => {
+        sec.classList.remove('active');
+    });
     
-    // Scroll to the section smoothly
-    document.getElementById(section + '-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Show selected section with fade in
+    const selectedSection = document.getElementById(section + '-section');
+    if (selectedSection) {
+        selectedSection.classList.add('active');
+    }
 }
 
 // ==================== Initialize ====================
