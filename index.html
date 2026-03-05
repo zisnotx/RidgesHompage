@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Calculator Suite</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>📊 Multi-Calculator Suite</h1>
+        <p class="tagline">Professional tools for all your calculation needs</p>
+    </header>
+
+    <main>
+        <div class="calculator-grid">
+            <!-- Section 1: Basic Calculator -->
+            <div class="calculator-section" id="basic-section" onclick="selectCalculator('basic')">
+                <div class="section-header">
+                    <span class="icon">➕</span>
+                    <h2>Basic Calculator</h2>
+                </div>
+                <div class="calculator-content" id="basic-calculator">
+                    <div class="display">
+                        <div class="previous-operand" id="basic-prev"></div>
+                        <div class="current-operand" id="basic-current">0</div>
+                    </div>
+                    <div class="keypad">
+                        <button class="span-two" onclick="basicClear()">AC</button>
+                        <button onclick="basicDelete()">DEL</button>
+                        <button class="operator" onclick="basicChooseOperation('^')">^</button>
+                        <button onclick="basicAppendNumber('7')">7</button>
+                        <button onclick="basicAppendNumber('8')">8</button>
+                        <button onclick="basicAppendNumber('9')">9</button>
+                        <button class="operator" onclick="basicChooseOperation('/')">÷</button>
+                        <button onclick="basicAppendNumber('4')">4</button>
+                        <button onclick="basicAppendNumber('5')">5</button>
+                        <button onclick="basicAppendNumber('6')">6</button>
+                        <button class="operator" onclick="basicChooseOperation('*')">×</button>
+                        <button onclick="basicAppendNumber('1')">1</button>
+                        <button onclick="basicAppendNumber('2')">2</button>
+                        <button onclick="basicAppendNumber('3')">3</button>
+                        <button class="operator" onclick="basicChooseOperation('-')">−</button>
+                        <button onclick="basicAppendNumber('0')">0</button>
+                        <button onclick="basicAppendNumber('.')">.</button>
+                        <button class="operator" onclick="basicChooseOperation('%')">%</button>
+                        <button class="operator" onclick="basicChooseOperation('+')">+</button>
+                        <button class="span-four equals" onclick="basicCompute()">=</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Logarithmic Calculator -->
+            <div class="calculator-section" id="log-section" onclick="selectCalculator('log')">
+                <div class="section-header">
+                    <span class="icon">📈</span>
+                    <h2>Logarithmic Calculator</h2>
+                </div>
+                <div class="calculator-content" id="log-calculator">
+                    <div class="display single-line">
+                        <div class="current-operand" id="log-result">0</div>
+                    </div>
+                    <div class="input-group">
+                        <label>Value (x):</label>
+                        <input type="number" id="log-input" placeholder="Enter value" step="any">
+                    </div>
+                    <div class="input-group">
+                        <label>Base:</label>
+                        <select id="log-base">
+                            <option value="10">log₁₀ (Common)</option>
+                            <option value="2.718281828459045">ln (Natural)</option>
+                            <option value="2">log₂ (Binary)</option>
+                        </select>
+                    </div>
+                    <button class="equals" onclick="calculateLog()">Calculate Log</button>
+                    <div class="log-info" id="log-info"></div>
+                </div>
+            </div>
+
+            <!-- Section 3: Factorization Calculator -->
+            <div class="calculator-section" id="factor-section" onclick="selectCalculator('factor')">
+                <div class="section-header">
+                    <span class="icon">🔢</span>
+                    <h2>Factorization Calculator</h2>
+                </div>
+                <div class="calculator-content" id="factor-calculator">
+                    <div class="display single-line">
+                        <div class="current-operand" id="factor-result">Enter a number</div>
+                    </div>
+                    <div class="input-group">
+                        <label>Number to factorize:</label>
+                        <input type="number" id="factor-input" placeholder="Enter integer > 1" min="2" step="1">
+                    </div>
+                    <button class="equals" onclick="calculateFactors()">Find Prime Factors</button>
+                    <div class="factor-display" id="factor-display"></div>
+                </div>
+            </div>
+
+            <!-- Section 4: Trigonometric Calculator -->
+            <div class="calculator-section" id="trig-section" onclick="selectCalculator('trig')">
+                <div class="section-header">
+                    <span class="icon">📐</span>
+                    <h2>Trigonometric Calculator</h2>
+                </div>
+                <div class="calculator-content" id="trig-calculator">
+                    <div class="display single-line">
+                        <div class="current-operand" id="trig-result">0</div>
+                    </div>
+                    <div class="input-group">
+                        <label>Angle:</label>
+                        <input type="number" id="trig-input" placeholder="Enter angle" step="any">
+                    </div>
+                    <div class="input-group">
+                        <label>Unit:</label>
+                        <select id="trig-unit">
+                            <option value="deg">Degrees</option>
+                            <option value="rad">Radians</option>
+                        </select>
+                    </div>
+                    <div class="trig-buttons">
+                        <button class="trig-btn" onclick="calculateTrig('sin')">sin</button>
+                        <button class="trig-btn" onclick="calculateTrig('cos')">cos</button>
+                        <button class="trig-btn" onclick="calculateTrig('tan')">tan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Multi-Calculator Suite. Built with precision.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
